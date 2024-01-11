@@ -1,6 +1,6 @@
 {
 	"name": "daily-entry-plugin",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "This plugin for Obsidian (https://obsidian.md) creates a button which when pressed creates a new journal entry for each day.",
 	"main": "main.js",
 	"scripts": {

@@ -5,15 +5,42 @@ const NEWLINE = "\n\n";
 
 export default class DailyEntryPlugin extends Plugin {
   async onload() {
-    const ribbonIconEl = this.addRibbonIcon('dice', 'Daily Entry', (evt: MouseEvent) => this.createAndAppend());
+    const ribbonIconEl = this.addRibbonIcon(
+      "dice",
+      "Log Entry",
+      (evt: MouseEvent) => this.createAndAppend(),
+    );
+
+    this.addCommand({
+      id: "add-log",
+      name: "Add Log Marker",
+      callback: () => {
+        this.createAndAppend();
+      },
+    });
+
   }
 
   onunload() {}
 
   async createAndAppend() {
     try {
-      const getCurrentDate = () => new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-      const getCurrentTime = () => new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true }).replace(/AM|PM/, match => match.toLowerCase()).replace(' ', '');
+      const getCurrentDate = () =>
+        new Date().toLocaleDateString("en-US", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+      const getCurrentTime = () =>
+        new Date()
+          .toLocaleTimeString("en-US", {
+            hour: "numeric",
+            minute: "numeric",
+            hour12: true,
+          })
+          .replace(/AM|PM/, (match) => match.toLowerCase())
+          .replace(" ", "");
 
       const todaysDate = getCurrentDate();
       const currentTime = getCurrentTime();
@@ -27,7 +54,9 @@ export default class DailyEntryPlugin extends Plugin {
         baseTitleName = pathParts[pathParts.length - 1];
       }
 
-      const files = this.app.vault.getMarkdownFiles().filter(item => item.basename === baseTitleName);
+      const files = this.app.vault
+        .getMarkdownFiles()
+        .filter((item) => item.basename === baseTitleName);
 
       // Append content or create a new file
       if (files.length === 0) {
@@ -37,7 +66,10 @@ export default class DailyEntryPlugin extends Plugin {
         const fileWithName = files[0];
         new Notice(`File already exists. Appending content...`);
         const fullExistingFileText = await this.app.vault.read(fileWithName);
-        await this.app.vault.modify(fileWithName, `${fullExistingFileText}${NEWLINE}${newContent}`);
+        await this.app.vault.modify(
+          fileWithName,
+          `${fullExistingFileText}${NEWLINE}${newContent}`,
+        );
       }
 
       await this.app.workspace.openLinkText(newTitle, "", false);
