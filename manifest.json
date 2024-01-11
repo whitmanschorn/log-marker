@@ -1,9 +1,9 @@
 {
 	"id": "log-marker",
 	"name": "Log Marker",
-	"version": "1.0.0",
+	"version": "1.0.6",
 	"minAppVersion": "0.15.0",
-	"description": "Adds a button to create an entry for the current date and time.",
+	"description": "Adds a command to create an entry for the current date and time.",
 	"author": "Whitman Schorn",
 	"authorUrl": "https://wschorn.com/",
 	"fundingUrl": "https://wschorn.com/",

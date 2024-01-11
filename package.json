@@ -1,7 +1,7 @@
 {
-	"name": "daily-entry-plugin",
-	"version": "1.0.2",
-	"description": "This plugin for Obsidian (https://obsidian.md) creates a button which when pressed creates a new journal entry for each day.",
+	"name": "log-marker-plugin",
+	"version": "1.0.6",
+	"description": "This plugin for Obsidian (https://obsidian.md) creates a command to make an entry for the current date and time.",
 	"main": "main.js",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",

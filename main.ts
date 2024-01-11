@@ -6,14 +6,14 @@ const NEWLINE = "\n\n";
 export default class DailyEntryPlugin extends Plugin {
   async onload() {
     const ribbonIconEl = this.addRibbonIcon(
-      "dice",
-      "Log Entry",
+      "plus-with-circle",
+      "Log entry",
       (evt: MouseEvent) => this.createAndAppend(),
     );
 
     this.addCommand({
       id: "add-log",
-      name: "Add Log Marker",
+      name: "Add log marker",
       callback: () => {
         this.createAndAppend();
       },
