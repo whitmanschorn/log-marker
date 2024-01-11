@@ -1,6 +1,6 @@
 {
 	"name": "log-marker-plugin",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "This plugin for Obsidian (https://obsidian.md) creates a command to make an entry for the current date and time.",
 	"main": "main.js",
 	"scripts": {
