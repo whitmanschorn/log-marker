@@ -74,7 +74,7 @@ export default class DailyEntryPlugin extends Plugin {
 
       await this.app.workspace.openLinkText(newTitle, "", false);
       const view = this.app.workspace.getActiveViewOfType(MarkdownView);
-      const editor = view.editor;
+      const editor = view!.editor;
       editor.setCursor(editor.lastLine());
       editor.focus();
     } catch (err) {
